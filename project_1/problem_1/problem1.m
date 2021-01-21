@@ -104,16 +104,10 @@ OOO
 OCO
 OOO
 
-C為中心，四連通比對的是周圍O的區域，此程式碼比對上方與左方的O，因此從圖片的(2, 2)開始比對，有三種不同的狀況 :
-1. 上方與左方無label :
-    C設為新label，label更新加1
-2. 上分或左方其一有label :
-    C設為上方或左方的label
-3. 上方與左方都有label : 
-    1. 上方與左方label相同
-        C設為上方label
-    2. 上方與左方label不同
-        C設為上方label，將所有左方label都改為上方label
+C為中心，四連通比對的是周圍O的區域，此程式碼比對上方三個O與左方的O，因此從圖片的(2, 2)開始比對，有三種不同的狀況 :
+1. 四個O中，沒有label : 新增新的label到中心
+2. 有一個label : 直接將label assign給中心
+3. 有兩個以上的label : 將其中一個label assign 給中心，其他的label都改為assign的label
 %}
 
 image_8adj = uint8(zeros(m, n));
